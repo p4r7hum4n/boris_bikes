@@ -1,6 +1,6 @@
 require_relative "../lib/docking_station.rb"
 
-RSpec.describe DockingStation do
+describe DockingStation do
   describe 'release bike' do
     it 'responds to release bike' do
       docking_station = DockingStation.new
