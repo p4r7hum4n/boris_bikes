@@ -1,4 +1,5 @@
 require_relative "../lib/bike.rb"
+
 #BIKE
 describe Bike do
   describe 'working' do

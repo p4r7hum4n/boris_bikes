@@ -1,4 +1,5 @@
 require_relative "../lib/docking_station.rb"
+require_relative "../lib/bike.rb"
 
 describe DockingStation do
   describe 'release bike' do
@@ -21,4 +22,17 @@ describe DockingStation do
 
   describe "bike in docking station"
     it { is_expected.to respond_to(:bike) }
+
+  describe "docks a bike" do
+    it 'dock a bike new' do
+      bike = Bike.new
+      expect(subject.dock(bike)).to eql (bike)
+    end
+
+    it 'return docked bikes' do
+      bike = Bike.new
+      expect(subject.bike).to eql (bike)
+    end
+
+  end
 end
