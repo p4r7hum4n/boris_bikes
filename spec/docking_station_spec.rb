@@ -31,6 +31,11 @@ describe DockingStation do
 =end 
   describe "dock bike" do
     it { is_expected.to respond_to(:dock).with(1).argument } 
+
+    it "raises an error when there is 1 bike docked" do
+      subject.dock(Bike.new)
+      expect{subject.dock(Bike.new)}.to raise_error("No spaces available")
+    end
   end  
 
   describe "bike in docking station" do
