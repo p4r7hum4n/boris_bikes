@@ -39,7 +39,7 @@ describe DockingStation do
   end  
 
   describe "bike in docking station" do
-    it { is_expected.to respond_to(:bike) }
+    it { is_expected.to respond_to(:bikes) }
   end
 
   describe "docks a bike" do
@@ -52,7 +52,7 @@ describe DockingStation do
   describe 'return docked bike' do
     it 'return docked bikes' do
       bike = Bike.new
-      expect(subject.bike).to eql (@bike)
+      expect(subject.bikes).to eql (@bikes)
     end
   end
 
