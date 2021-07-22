@@ -40,10 +40,6 @@ describe DockingStation do
     end
   end  
 
-  describe "bike in docking station" do
-    it { is_expected.to respond_to(DockingStation::bikes) }
-  end
-
   describe "docks a bike" do
     it 'dock a bike new' do
       bike = Bike.new
