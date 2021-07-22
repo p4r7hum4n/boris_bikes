@@ -48,16 +48,15 @@ describe DockingStation do
   end
 
   describe "#intialize" do
-    it "sets the @capacity variable" do
 
-      ds = DockingStation.new(1)
-      expect(ds.capacity).to eq(1)
-    end
-
-    it "@capacity defaults to 20" do
-      ds = DockingStation.new
-      expect(ds.capacity).to eq(DockingStation::DEFAULT_CAPACITY)
-    end
+      subject { DockingStation.new }
+      let(:bike) { Bike.new }
+      it "defaults capacity" do
+        DockingStation::DEFAULT_CAPACITY.times do
+          subject.dock(bike)
+        end
+        expect { subject.dock(bike) }.to raise_error "No spaces available"
+      end
     
   end
   
