@@ -34,7 +34,7 @@ describe DockingStation do
 
     it "raises an error when there are 20 bikes docks" do
       docking_station = DockingStation.new
-      20.times { docking_station.dock Bike.new }
+      DockingStation::DEFAULT_CAPACITY.times { docking_station.dock Bike.new }
       expect{docking_station.dock(Bike.new)}.to raise_error("No spaces available")
      
     end
@@ -48,13 +48,6 @@ describe DockingStation do
     it 'dock a bike new' do
       bike = Bike.new
       (subject.dock(bike)).should be_kind_of(Array) 
-    end
-  end
-
-  describe 'return docked bike' do
-    it 'return docked bikes' do
-      bike = Bike.new
-      expect(subject.bikes).to eql (@bikes)
     end
   end
 
