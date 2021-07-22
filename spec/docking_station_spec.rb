@@ -34,14 +34,14 @@ describe DockingStation do
 
     it "raises an error when there are 20 bikes docks" do
       docking_station = DockingStation.new
-      DockingStation::DEFAULT_CAPACITY.times { docking_station.dock Bike.new }
+      docking_station.capacity.times { docking_station.dock Bike.new }
       expect{docking_station.dock(Bike.new)}.to raise_error("No spaces available")
      
     end
   end  
 
   describe "bike in docking station" do
-    it { is_expected.to respond_to(:bikes) }
+    it { is_expected.to respond_to(DockingStation::bikes) }
   end
 
   describe "docks a bike" do
@@ -51,5 +51,18 @@ describe DockingStation do
     end
   end
 
+  describe "#intialize" do
+    it "sets the @capacity variable" do
+
+      ds = DockingStation.new(1)
+      expect(ds.capacity).to eq(1)
+    end
+
+    it "@capacity defaults to 20" do
+      ds = DockingStation.new
+      expect(ds.capacity).to eq(DockingStation::DEFAULT_CAPACITY)
+    end
+    
+  end
   
 end
