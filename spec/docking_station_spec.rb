@@ -32,9 +32,11 @@ describe DockingStation do
   describe "dock bike" do
     it { is_expected.to respond_to(:dock).with(1).argument } 
 
-    it "raises an error when there is 1 bike docked" do
-      subject.dock(Bike.new)
-      expect{subject.dock(Bike.new)}.to raise_error("No spaces available")
+    it "raises an error when there are 20 bikes docks" do
+      docking_station = DockingStation.new
+      20.times { docking_station.dock Bike.new }
+      expect{docking_station.dock(Bike.new)}.to raise_error("No spaces available")
+     
     end
   end  
 
@@ -45,7 +47,7 @@ describe DockingStation do
   describe "docks a bike" do
     it 'dock a bike new' do
       bike = Bike.new
-      expect(subject.dock(bike)).to eql (bike)
+      (subject.dock(bike)).should be_kind_of(Array) 
     end
   end
 

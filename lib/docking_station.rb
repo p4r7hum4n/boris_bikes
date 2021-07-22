@@ -8,12 +8,12 @@ class DockingStation
   end
   
   def release_bike 
-    return fail "No bikes available" unless @bikes.length > 0
+    return fail "No bikes available" unless @bikes.count > 0
     @bikes.pop
   end
 
   def dock(bike)
-    fail "No spaces available" unless @bikes.length >= 20
+    fail "No spaces available" unless @bikes.count < 20
     @bikes.push(bike)
   end
 
